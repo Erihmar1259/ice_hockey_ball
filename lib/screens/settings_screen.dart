@@ -2,7 +2,9 @@ import 'package:animated_text_lerp/animated_text_lerp.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:ice_hockey_ball/screens/change_language_screen.dart';
 import 'package:ice_hockey_ball/screens/game_screen.dart';
 import 'package:ice_hockey_ball/screens/privacy_policy_screen.dart';
 import 'package:ice_hockey_ball/utils/screen_navigation_extension.dart';
@@ -10,6 +12,7 @@ import '../../constants/color_const.dart';
 import '../../constants/dimen_const.dart';
 import '../../widgets/custom_text.dart';
 import '../constants/string_const.dart';
+import '../controller/language_controller.dart';
 import 'intro_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -74,6 +77,7 @@ void getScore(){
 
   @override
   Widget build(BuildContext context) {
+    final languageController = Get.put(LanguageController());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -91,7 +95,7 @@ void getScore(){
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: CustomText(
-          text: "Settings",
+          text: "settings".tr,
           color: whiteColor,
           fontSize: 20.sp,
           fontWeight: FontWeight.bold,
@@ -117,7 +121,7 @@ void getScore(){
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                 child: CustomText(
-                    text: "Score Board (Two Players Mode)",
+                    text: "score_board".tr,
                     color: whiteColor,
                     fontSize: 14.sp,
                     fontWeight: FontWeight.bold),
@@ -140,7 +144,7 @@ void getScore(){
                       Row(
                         children: [
                           CustomText(
-                            text: 'Player 1',
+                            text: 'player1'.tr,
                             color: whiteColor,
                             fontSize: 12.sp,
                           ),
@@ -170,7 +174,7 @@ void getScore(){
                           ),
                           kSizedBoxW10,
                           CustomText(
-                            text: 'Player 2',
+                            text: 'player2'.tr,
                             color: whiteColor,
                             fontSize: 12.sp,
                           ),
@@ -184,7 +188,46 @@ void getScore(){
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                 child: CustomText(
-                    text: "Sound Settings",
+                    text: "language_settings".tr,
+                    color: whiteColor,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.bold),
+              ),
+              GestureDetector(
+                onTap: () {
+Get.to(const ChangeLanguageScreen());
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10.w),
+                  padding:
+                  EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                  width: MediaQuery.of(context).size.width,
+                  height: 60.h,
+                  decoration: BoxDecoration(
+                    color: mainColor.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(10.r),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomText(
+                        text: "change_language".tr,
+                        color: whiteColor,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      kSizedBoxW5,
+                   Icon(Icons.language, color: whiteColor,size: 35.w
+                     ,)
+                    ],
+                  ),
+                ),
+              ),
+              kSizedBoxH30,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                child: CustomText(
+                    text: "sound_settings".tr,
                     color: whiteColor,
                     fontSize: 14.sp,
                     fontWeight: FontWeight.bold),
@@ -207,7 +250,7 @@ void getScore(){
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomText(
-                        text: "Sound",
+                        text: "sound".tr,
                         color: whiteColor,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
@@ -227,7 +270,7 @@ void getScore(){
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                 child: CustomText(
-                    text: "General",
+                    text: "general".tr,
                     color: whiteColor,
                     fontSize: 14.sp,
                     fontWeight: FontWeight.bold),
@@ -250,7 +293,7 @@ void getScore(){
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomText(
-                          text: "Privacy Policy",
+                          text: "policy".tr,
                           color: whiteColor,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.bold),
@@ -274,7 +317,7 @@ void getScore(){
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CustomText(
-                        text: "Version",
+                        text: "version".tr,
                         color: whiteColor,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold),

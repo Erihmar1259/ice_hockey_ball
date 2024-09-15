@@ -1,14 +1,17 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/utils.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ice_hockey_ball/screens/game_screen.dart';
 import 'package:ice_hockey_ball/screens/settings_screen.dart';
+import 'package:ice_hockey_ball/utils/local_storage.dart';
 import 'package:ice_hockey_ball/utils/screen_navigation_extension.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../constants/color_const.dart';
 import '../constants/dimen_const.dart';
 import '../constants/image_const.dart';
+import '../languages/enum.dart';
 import '../utils/global.dart';
 import '../widgets/custom_image_button.dart';
 import '../widgets/custom_text.dart';
@@ -52,7 +55,8 @@ class _IntroScreenState extends State<IntroScreen> {
                                   width: double.infinity,
                                   child: WebViewWidget(
                                       controller: WebViewController()
-                                        ..loadHtmlString(Global.policyEn))),
+                                        ..loadHtmlString( Global.language == Language.zh.name
+                                            ? Global.policyZh:Global.policyEn))),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -77,8 +81,8 @@ class _IntroScreenState extends State<IntroScreen> {
                                     });
                                   },
                                 ),
-                                const CustomText(
-                                  text: "I agree to the privacy policy",
+                                 CustomText(
+                                  text: "agree".tr,
                                 ),
                               ],
                             ),
@@ -86,10 +90,10 @@ class _IntroScreenState extends State<IntroScreen> {
                               style: ButtonStyle(
                                   backgroundColor:
                                   MaterialStateColor.resolveWith((states) =>
-                                  isAccepted ? mainColor : greyColor)),
+                                  isAccepted ? secondaryColor : greyColor)),
                               // ignore: sort_child_properties_last
                               child: CustomText(
-                                text: "Accept and Continue",
+                                text: "accept".tr,
                                 color: whiteColor,
                               ),
                               onPressed: isAccepted
@@ -148,7 +152,7 @@ class _IntroScreenState extends State<IntroScreen> {
             children: [
 
               CustomImageButton(
-                btnLabel: "Play Now",
+                btnLabel: "play_now".tr,
                 onTapFun: () {
                   // controller.isSinglePlayer.value = true;
                    context.navigateAndRemoveUntil( AirHockey(), true);
@@ -157,7 +161,7 @@ class _IntroScreenState extends State<IntroScreen> {
               kSizedBoxH20,
 
               CustomImageButton(
-                  btnLabel: "Exit",
+                  btnLabel: "exit".tr,
                   onTapFun: () {
                     exit(0);
                   }),

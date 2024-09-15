@@ -1,0 +1,27 @@
+class EnLanguage {
+  Map<String, String> enLanguage = {
+    'english': 'English',
+    'chinese': '中國人',
+    'language': 'Language',
+    'language_settings': 'Language Settings',
+    'change_language': 'Change Language',
+    'policy': 'Privacy Policy',
+    'version': 'Version',
+    'settings': 'Settings',
+    'agree': 'I agreed to the privacy policy.',
+    'accept': 'Accept',
+    'play_now': 'Play Now',
+    'exit': 'Exit',
+    'score_board': 'Score Board',
+    'player1': 'Player 1',
+    'player2': 'Player 2',
+    'sound_settings': 'Sound Settings',
+    'sound': 'Sound',
+    'general':'General',
+    'game_will_start':'Game will start in ',
+    'seconds':' seconds',
+    'congratulations':'Congratulations!',
+    'player1_won':'Player 1 won!',
+    'player2_won':'Player 2 won!',
+  };
+}

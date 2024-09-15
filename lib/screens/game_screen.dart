@@ -334,9 +334,9 @@ class _AirHockeyState extends State<AirHockey> {
             barrierDismissible: false,
             contentPadding: EdgeInsets.all(20.w),
             backgroundColor: mainColor.withOpacity(0.5),
-            title: "Congratulations",
+            title: "congratulations".tr,
             titleStyle: TextStyle(color: whiteColor, fontSize: 20.sp),
-            middleText: "Player 2 wins!",
+            middleText: "player2_won".tr,
 
             middleTextStyle: TextStyle(color: whiteColor, fontSize: 16.sp),
             confirm: TextButton(
@@ -393,9 +393,9 @@ class _AirHockeyState extends State<AirHockey> {
             barrierDismissible: false,
             contentPadding: EdgeInsets.all(20.w),
             backgroundColor: mainColor.withOpacity(0.5),
-            title: "Congratulations",
+            title: "congratulations".tr,
             titleStyle: TextStyle(color: whiteColor, fontSize: 20.sp),
-            middleText: "Player 1 wins!",
+            middleText: "player1_won".tr,
 
             middleTextStyle: TextStyle(color: whiteColor, fontSize: 16.sp),
             confirm: TextButton(
@@ -560,7 +560,7 @@ getScore()async{
             if (countdown > 0)
               Center(
                 child: Text(
-                  'Game will start in $countdown seconds',
+                  'game_will_start'.tr+countdown.toString()+'seconds'.tr,
                   style:  TextStyle(fontSize: 18.sp, color: Colors.blue),
                 ),
               ),
